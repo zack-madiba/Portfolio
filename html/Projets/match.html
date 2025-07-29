@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Projets data - François OKOLO</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline ETL Startups-Investisseurs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/match.css">
+</head>
+<body>
+    <!-- Menu camembert flottant -->
+    <div class="pie-menu-container">
+  <input type="checkbox" id="pie-toggle" class="pie-toggle">
+</div>
+
+<!-- Bouton flottant moderne CORRIGÉ -->
+<a href="../Projets/acceuil.html" class="floating-btn" id="floatingBtn" aria-label="Retour à l'accueil" title="Revenir à l'accueil">
+  <i class="bi bi-arrow-up"></i>
+  <span class="floating-tooltip">Revenir à l'accueil</span>
+</a>
+    </div>
+
+    <div class="container py-5">
+        <!-- Hero Section -->
+        <section class="hero-section bg-gradient-primary animate-slide" id="home">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-5 fw-bold mb-3 title-animate">
+                        <i class="bi bi-graph-up-arrow me-2"></i> Pipeline ETL d'Analyse des Relations Startups-Investisseurs
+                    </h1>
+                    <p class="lead text-muted mb-4 animate-delay-1">Optimisation du processus de matchmaking par l'analyse de données</p>
+                    <p class="mb-4 animate-delay-2">
+                        Projet de data engineering pour analyser et améliorer les mises en relation entre 49 startups et 1761 investisseurs. 
+                        L'objectif était d'identifier les meilleures opportunités et d'optimiser les taux de conversion.
+                    </p>
+                    <div class="d-flex flex-wrap animate-delay-3">
+                        <span class="tech-badge"><i class="bi bi-database me-1"></i> SQLite</span>
+                        <span class="tech-badge"><i class="bi bi-code-slash me-1"></i> Python</span>
+                        <span class="tech-badge"><i class="bi bi-graph-up me-1"></i> Power BI</span>
+                        <span class="tech-badge"><i class="bi bi-shield-check me-1"></i> Sécurité</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row g-3">
+                        <div class="col-6 animate-delay-1">
+                            <div class="metric-card bg-white">
+                                <div class="metric-number">1,761</div>
+                                <div class="metric-label">
+                                    <i class="bi bi-people-fill me-1"></i> Investisseurs
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 animate-delay-2">
+                            <div class="metric-card bg-white">
+                                <div class="metric-number">49</div>
+                                <div class="metric-label">
+                                    <i class="bi bi-building me-1"></i> Startups
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 animate-delay-3">
+                            <div class="metric-card bg-white">
+                                <div class="metric-number">100%</div>
+                                <div class="metric-label">
+                                    <i class="bi bi-arrow-repeat me-1"></i> Pipeline ETL
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
+        <!-- Business Impact Section -->
+        <section class="section-card bg-light-blue animate-fade" id="business-impact">
+            <h2 class="mb-4 section-title">
+                <i class="bi bi-lightning-charge-fill me-3 pulse-icon"></i>
+                Enjeux Business
+            </h2>
+            
+            <div class="business-impact-card">
+                <h3 class="d-flex align-items-center">
+                    <i class="bi bi-graph-up me-2"></i> Problématique Business
+                </h3>
+                <p class="mb-0">
+                    Maximiser l'efficacité des mises en relation entre startups et investisseurs en identifiant :
+                </p>
+                <ul>
+                    <li>Les investisseurs les plus actifs et réactifs</li>
+                    <li>Les startups avec le plus fort potentiel d'intérêt</li>
+                    <li>Les typologies de matchs les plus prometteuses</li>
+                    <li>Les opportunités à relancer en priorité</li>
+                </ul>
+            </div>
+            
+            <div class="row g-4 mt-4">
+                <div class="col-md-6 animate-delay-1">
+                    <div class="impact-card bg-white">
+                        <h4 class="d-flex align-items-center">
+                            <i class="bi bi-cash-coin text-primary me-2"></i>STRATEGIE COMMERCIALE
+                        </h4>
+                        <p>
+                            Réduction du temps passé sur des matchs peu prometteurs et concentration sur les opportunités à fort potentiel.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 animate-delay-2">
+                    <div class="impact-card bg-white">
+                        <h4 class="d-flex align-items-center">
+                            <i class="bi bi-speedometer2 text-success me-2"></i> Efficacité Opérationnelle
+                        </h4>
+                        <p>
+                            Automatisation du suivi des relations et priorisation intelligente des actions commerciales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Section Workflow Principal -->
+<section class="section-card bg-light-blue animate-fade" id="data-workflow">
+    <h2 class="mb-4 section-title">
+        <i class="bi bi-diagram-3-fill me-3 pulse-icon"></i>
+        Workflow de Données
+    </h2>
+
+    <div class="workflow-explanation mb-4">
+        <h5>
+            <i class="bi bi-info-circle-fill me-2"></i>
+            Description
+        </h5>
+        <p class="mb-4">
+            Ce workflow de données illustre le processus complet de traitement et d'analyse de l'information, 
+            depuis la collecte jusqu'à la visualisation finale.
+        </p>
+    </div>
+
+    <div class="workflow-flow d-flex flex-wrap justify-content-center align-items-center gap-4">
+        <!-- Bloc 1: Google Sheets -->
+        <div class="workflow-block text-center animate-delay-1 fade-in">
+            <i class="bi bi-google text-info display-4 mb-2 bounce-icon"></i>
+            <h5>Google Sheets</h5>
+            <p class="small">
+                Fichier source contenant les données brutes saisies ou collectées en amont du processus analytique.
+            </p>
+        </div>
+
+        <!-- Flèche 1 -->
+        <div class="arrow-container">
+            <i class="bi bi-chevron-right display-5 text-dark arrow-icon d-none d-md-inline"></i>
+            <i class="bi bi-chevron-down display-6 text-dark arrow-icon d-inline d-md-none"></i>
+        </div>
+
+        <!-- Bloc 2: Script Python -->
+        <div class="workflow-block text-center animate-delay-2 fade-in">
+            <i class="bi bi-terminal text-warning display-4 mb-2 bounce-icon"></i>
+            <h5>Script Python</h5>
+            <p class="small">
+                Extraction automatisée et sécurisée via les librairies <code>requests</code>, <code>pandas</code> et <code>sqlite3</code> pour nettoyer, transformer et formater les données.
+            </p>
+        </div>
+
+        <!-- Flèche 2 -->
+        <div class="arrow-container">
+            <i class="bi bi-chevron-right display-5 text-dark arrow-icon d-none d-md-inline"></i>
+            <i class="bi bi-chevron-down display-6 text-dark arrow-icon d-inline d-md-none"></i>
+        </div>
+
+        <!-- Bloc 3: Base SQLite -->
+        <div class="workflow-block text-center animate-delay-3 fade-in">
+            <i class="bi bi-database-check text-success display-4 mb-2 bounce-icon"></i>
+            <h5>Base SQLite</h5>
+            <p class="small">
+                Stockage local dans une base de données relationnelle structurée en modèle en étoile, facilitant la performance des requêtes analytiques.
+            </p>
+        </div>
+
+        <!-- Flèche 3 -->
+        <div class="arrow-container">
+            <i class="bi bi-chevron-right display-5 text-dark arrow-icon d-none d-md-inline"></i>
+            <i class="bi bi-chevron-down display-6 text-dark arrow-icon d-inline d-md-none"></i>
+        </div>
+
+        <!-- Bloc 4: Analyse SQL -->
+        <div class="workflow-block text-center animate-delay-4 fade-in">
+            <i class="bi bi-search text-primary display-4 mb-2 bounce-icon"></i>
+            <h5>Analyse SQL</h5>
+            <p class="small">
+                Exécution de requêtes complexes pour identifier les KPI clés, extraire les insights métiers, et suivre l'évolution des interactions entre investisseurs et prospects.
+            </p>
+        </div>
+
+        <!-- Flèche 4 -->
+        <div class="arrow-container">
+            <i class="bi bi-chevron-right display-5 text-dark arrow-icon d-none d-md-inline"></i>
+            <i class="bi bi-chevron-down display-6 text-dark arrow-icon d-inline d-md-none"></i>
+        </div>
+
+        <!-- Bloc 5: Power BI -->
+        <div class="workflow-block text-center animate-delay-5 fade-in">
+            <i class="bi bi-bar-chart-line-fill text-danger display-4 mb-2 bounce-icon"></i>
+            <h5>Power BI</h5>
+            <p class="small">
+                Création de tableaux de bord interactifs pour visualiser les données, piloter la stratégie commerciale et faciliter les prises de décisions.
+            </p>
+        </div>
+    </div>
+
+    <!-- Section d'explication détaillée -->
+    <div class="explanation-area animate-delay-5 fade-in-up">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="info-block animate-delay-6 slide-in-left">
+                    <h5><i class="bi bi-gear-fill me-2"></i>Processus Technique</h5>
+                    <ul class="custom-list">
+                        <li><i class="bi bi-arrow-right-short text-success"></i>Extraction automatisée des données depuis Google Sheets</li>
+                        <li><i class="bi bi-arrow-right-short text-warning"></i>Traitement et nettoyage via Python</li>
+                        <li><i class="bi bi-arrow-right-short text-info"></i>Stockage sécurisé dans une base SQLite</li>
+                        <li><i class="bi bi-arrow-right-short text-primary"></i>Analyses avancées avec requêtes SQL complexes</li>
+                        <li><i class="bi bi-arrow-right-short text-danger"></i>Visualisation interactive avec Power BI</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="info-block animate-delay-7 slide-in-right">
+                    <h5><i class="bi bi-trophy-fill me-2"></i>Avantages</h5>
+                    <ul class="custom-list">
+                        <li><i class="bi bi-check-circle-fill text-success"></i>Pipeline de données robuste et scalable</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i>Traçabilité complète des transformations</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i>Analyses en temps réel</li>
+                        <li><i class="bi bi-check-circle-fill text-success"></i>Visualisations dynamiques et interactives</li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div class="schema-bdd-container">
+            <div class="schema-full">
+                <h3 class="mt-4 mb-3 animate-delay-1 slide-in-right">Modélisation des Données</h3>
+            <p class="animate-delay-2 fade-in">
+                Conception d'un schéma en étoile pour faciliter l'analyse et les requêtes métier.
+            </p>
+                    <img src="../Projets/image_match_startup/shema bdd.png" alt="Schéma des données brutes" class="img-fluid">
+                        <div class="schema-caption">
+                            <i class="bi bi-box-fill text-primary me-1"></i>
+ Modèle relationnel en étoile avec table de faits centrale
+                        </div>
+                <strong>Structure dimensionnelle :</strong> 
+<i class="bi bi-diagram-3-fill" style="color: #0d6efd; margin-right: 5px;"></i> 
+Une table de faits centrale (<code>match_PRINCIPALE</code>) reliée à des tables de dimensions (<code>typologie</code>, <code>statut_match</code>, etc.)
+
+            
+        </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 1: Collecte des Données -->
+<section class="section-card bg-light-purple animate-fade" id="data-collection">
+    <div class="timeline">
+        <div class="timeline-step">
+            <h2 class="mb-4 section-title fade-in">
+                <i class="bi bi-cloud-download-fill me-3"></i>
+                1. Collecte des Données
+            </h2>
+            
+            <p class="animate-delay-1 slide-in-left">
+                Extraction sécurisée depuis Google Sheets grace aux bibliothèques Python <code>requests, BytesIO, Pandas</code>, sans stockage intermédiaire sur disque.
+            </p>
+            
+            <div class="code-section animate-delay-2 fade-in-up">
+                <div class="code-toolbar">
+                    <span class="code-lang-badge">python</span>
+                    <div class="code-actions">
+                        <button class="code-copy-btn" title="Copier le code">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
+                    </div>
+                </div>
+                <pre class="code-block"><code class="language-python">import pandas as pd
+import requests
+from io import BytesIO
+
+url = "https://docs.google.com/spreadsheets/d/1-ozQDxIBwo-XhgNrfqDZaPwlN9j88c8E/export?format=xlsx"
+save_path = "data.csv"
+
+def download_file(url, save_path):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            df = pd.read_excel(BytesIO(response.content))
+            df.to_csv(save_path, index=False)
+            print(f"Fichier téléchargé avec succès dans {save_path}")
+            return df
+    except requests.exceptions.RequestException as e:
+        print(f"Erreur: {e}")</code></pre>
+                <div class="code-footer">
+                    <span class="code-info">Fonction de téléchargement sécurisé depuis Google Sheets</span>
+                </div>
+            </div>
+            
+            <div class="note-box animate-delay-3 bounce-in">
+                <strong><i class="bi bi-exclamation-triangle-fill me-2"></i>Sécurité:</strong> 
+                L'utilisation de BytesIO permet de manipuler les données en mémoire sans risque d'exposition sur le disque.
+            </div>
+            
+            <h3 class="mt-4 mb-3 animate-delay-1 slide-in-right">Analyse des Données Brutes</h3>
+            <p class="animate-delay-2 fade-in">
+                Audit de la qualité des données pour identifier les incohérences et standardiser les formats avant l'intégration.<br>
+                Identification des colonnes à transformer, supprimer ou renommer pour pour une exploitation simple des données.
+            </p>
+                <div class="schema-full">
+                    <img src="../Projets/image_match_startup/raw_data_table.png" alt="Schéma des données brutes" class="img-fluid">
+                    <div class="schema-caption">Structure initiale des données avant transformation</div>
+                </div>
+            <div class="highlight-box animate-delay-1 pulse">
+                <strong>Colonnes à supprimer:</strong> "Investisseur.statut", "Statut match", "Typologie" (recréées dans le modèle normalisé)<br>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: Nettoyage & Transformation -->
+<section class="section-card bg-light-green animate-fade" id="data-cleaning">
+    <div class="timeline">
+        <div class="timeline-step">
+            <h2 class="mb-4 section-title fade-in">
+                <i class="bi bi-brush-fill me-3"></i>
+                2. Nettoyage & Transformation
+            </h2>
+            
+            <p class="animate-delay-1 slide-in-left">
+                Standardisation des formats, gestion des valeurs manquantes et création de champs dérivés pour l'analyse.
+            </p>
+            
+            <div class="code-section animate-delay-2 fade-in-up">
+                <div class="code-toolbar">
+                    <span class="code-lang-badge">python</span>
+                    <div class="code-actions">
+                        <button class="code-copy-btn" title="Copier le code">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
+                    </div>
+                </div>
+                <pre class="code-block"><code class="language-python">def nettoyer_donnees_investisseurs(save_path):
+    df_raw = pd.read_csv(save_path)
+    df_cleaned = df_raw.copy()
+    
+    # Nettoyage des colonnes combinées
+    columns_raw = ["Investisseur.statut", "Statut match", "Typologie"]
+    for col in columns_raw:
+        df_cleaned[col] = df_cleaned[col].astype(str).str.split(' ', n=1).str[1]
+    
+    # Conversion des montants (K€ → €)
+    df_cleaned["Montant estimé"] = (
+        df_cleaned["Montant estimé"]
+        .replace({r"[Kk]": ""}, regex=True)
+        .astype(float) * 1000
+    )
+    
+    # Création d'un contact unique
+    df_cleaned['contact investisseur'] = df_cleaned.apply(
+        lambda row: f"{row['Nom CP']} {row['Prénom']}" 
+        if pd.notna(row['Nom CP']) && pd.notna(row['Prénom']) 
+        else row['Client Principal'] if pd.notna(row['Client Principal']) 
+        else row['Investisseur'],
+        axis=1
+    )
+    
+    return df_cleaned</code></pre>
+                <div class="code-footer">
+                    <span class="code-info">Fonction de nettoyage et transformation des données</span>
+                </div>
+            </div>
+            
+            <div class="note-box animate-delay-3 bounce-in">
+                <strong><i class="bi bi-lightbulb-fill me-2"></i>Optimisation:</strong> 
+                Utilisation de vectorisation avec Pandas pour des opérations plus efficaces que les boucles.
+            </div>
+
+          
+    </div>
+</section>
+
+<!-- Section 3: Base de Données SQLite -->
+<section class="section-card bg-light-yellow animate-fade" id="database">
+    <div class="timeline">
+        <div class="timeline-step">
+            <h2 class="mb-4 section-title fade-in">
+                <i class="bi bi-database-fill me-3"></i>
+                3. Base de Données SQLite
+            </h2>
+            
+            <p class="animate-delay-1 slide-in-left">
+                Création des tables et relations avec contraintes d'intégrité pour garantir la qualité des données.
+            </p>
+            
+            <div class="code-section animate-delay-2 fade-in-up">
+                <div class="code-toolbar">
+                    <span class="code-lang-badge">python</span>
+                    <div class="code-actions">
+                        <button class="code-copy-btn" title="Copier le code">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
+                    </div>
+                </div>
+                <pre class="code-block"><code class="language-python"># Table de dimension typologie
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS typologie (
+    id_typologie INTEGER PRIMARY KEY AUTOINCREMENT,
+    typologie TEXT UNIQUE
+)""")
+
+# Table de faits centrale
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS match_PRINCIPALE (
+    id_match INTEGER PRIMARY KEY,
+    typologie_id INTEGER REFERENCES typologie(id_typologie),
+    startup_id INTEGER REFERENCES startup(id_startup),
+    statut_match_id INTEGER REFERENCES statut_match(id_statut_match),
+    montant_estimé REAL,
+    commentaire TEXT
+)""")</code></pre>
+                <div class="code-footer">
+                    <span class="code-info">Création des tables SQLite avec contraintes d'intégrité</span>
+                </div>
+            </div>
+            
+            <div class="note-box animate-delay-3 bounce-in">
+                <strong><i class="bi bi-exclamation-triangle-fill me-2"></i>Challenge:</strong> 
+                Gestion des clés étrangères et contraintes d'intégrité pour maintenir la cohérence des relations.
+            </div>
+            
+            <h3 class="mt-4 mb-3 animate-delay-1 slide-in-right">Insertion des Données</h3>
+            <p class="animate-delay-2 fade-in">
+                Peuplement des tables à partir des données nettoyées avec gestion des doublons.
+            </p>
+            
+            <div class="code-section animate-delay-3 fade-in-up">
+                <div class="code-toolbar">
+                    <span class="code-lang-badge">python</span>
+                    <div class="code-actions">
+                        <button class="code-copy-btn" title="Copier le code">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
+                    </div>
+                </div>
+                <pre class="code-block"><code class="language-python"># Insertion des typologies uniques
+cursor.executemany("""
+    INSERT OR IGNORE INTO typologie (typologie)
+    VALUES (?)
+""", df[["Typologie"]].drop_duplicates().dropna().values)
+
+# Insertion des matchs
+for _, row in df.iterrows():
+    cursor.execute("""
+        INSERT INTO match_PRINCIPALE (
+            id_match, typologie_id, startup_id, 
+            statut_match_id, montant_estimé, commentaire
+        ) VALUES (?, ?, ?, ?, ?, ?)
+    """, (...))</code></pre>
+                <div class="code-footer">
+                    <span class="code-info">Insertion des données nettoyées dans la base SQLite</span>
+                </div>
+            </div>
+            
+            <div class="highlight-box animate-delay-1 pulse">
+                <strong>Performance:</strong> Utilisation de <code>executemany</code> pour les insertions en masse et <code>INSERT OR IGNORE</code> pour éviter les doublons.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: Analyse des Données -->
+<section class="section-card bg-light-pink animate-fade" id="analysis">
+    <div class="timeline">
+        <div class="timeline-step">
+            <h2 class="mb-4 section-title fade-in">
+                <i class="bi bi-bar-chart-line-fill me-3"></i>
+                4. Analyse des Données
+            </h2>
+            
+            <p class="animate-delay-1 slide-in-left">
+                Requêtes SQL ciblées pour répondre aux questions métier et identifier des opportunités.
+            </p>
+            
+            <h3 class="mt-4 mb-3 animate-delay-1 slide-in-right">Investisseurs les Plus Actifs</h3>
+            <div class="code-section animate-delay-2 fade-in-up">
+                <div class="code-toolbar">
+                    <span class="code-lang-badge">sql</span>
+                </div>
+                <pre class="code-block"><code class="language-sql">
+Select i.investisseur as "Nom d'investisseur",
+t.typologie as "Type d'investisseur",
+count(*) as "Occurences"
+from investisseur i
+join match m on m.investisseur_ID = i.ID_investisseur
+join typologie t on t.id_typologie = m.typologie_id
+join statut_match s on s.ID_statut_match = m.statut_match_id
+WHERE s.statut_match IN ('En RDV', 'Deal', 'Potentiel', 'Dossier envoyé')
+group by i.investisseur, t.typologie
+order by "occurences" DESC
+limit 5;
+</code></pre>
+                <div class="code-footer">
+                    <span class="code-info">Requête d'analyse des investisseurs les plus actifs</span>
+                </div>
+            </div>
+            
+            <div class="schema-container animate-delay-3 zoom-in">
+                <div class="schema-preview">
+                    <i class="bi bi-eye-fill"></i> le top 5 des investisseurs actifs montre que  les investisseurs sont à égalité avec seulement 2 rencontres maximum, ce qui montre un niveau d'activité très
+                    faible sur la plateforme. Les Business Angels (4/5) dominent les rencontres effectives (8/10), confirmant qu'ils sont plus
+                    accessibles que les gros fonds
+                </div>
+                <div class="schema-full">
+                    <img src="../Projets/image_match_startup/investisseurs les plus actifs.png" alt="Top 3 investisseurs" class="img-fluid">
+                    <div class="schema-caption">Investisseurs ayant rencontré le plus de startups</div>
+                </div>
+            </div>
+            
+            <div class="business-impact-card animate-delay-1 bounce-in">
+                <h4 class="d-flex align-items-center">
+                    <i class="bi bi-people-fill me-2"></i> Insight Business
+                </h4>
+                <p>
+                    Identification des investisseurs clés à cibler en priorité pour de nouvelles startups, avec un taux de réponse élevé.
+                </p>
+            </div>
+            
+            <h3 class="mt-4 mb-3 animate-delay-1 slide-in-right">Matchs à Relancer par Typologie</h3>
+            <div class="code-section animate-delay-2 fade-in-up">
+                <div class="code-toolbar">
+                    <span class="code-lang-badge">sql</span>
+                    <div class="code-actions">
+                        <button class="code-copy-btn" title="Copier le code">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <pre class="code-block"><code class="language-sql">
+SELECT
+t.typologie,
+COUNT(m.id_match) AS matchs_a_relancer
+FROM match m
+JOIN typologie t ON m.typologie_id = t.id_typologie
+JOIN statut_match s ON m.statut_match_id = s.ID_statut_match
+WHERE s.statut_match IN ('relancer', 'Intérêt', 'Intention', 'A présenter', 'Stand by','Potentiel')
+GROUP BY t.typologie
+ORDER BY matchs_a_relancer DESC;</code></pre>
+                    <div class="code-footer">
+                    <span class="code-info">Requête d'analyse des opportunités à relancer</span>
+                </div>
+                
+            </div>
+            
+            
+            <div class="schema-container animate-delay-4 zoom-in">
+                <div class="schema-preview">
+                    <i class="bi bi-eye-fill"></i> Les investisseurs les plus actifs en nombre de matchs à relancer sont majoritairement issus des typologies BA et VC,
+                    avec une légère prédominance des Business Angels. Les investisseurs financent majotitairement des projets jeunes, à fort potentiel mais
+                    encore risqués, ce qui en fait des cibles prioritaires pour une relance stratégique et structurée
+                </div>
+                <div class="schema-full">
+                    <img src="../Projets/image_match_startup/match à relacer par typologie.png" alt="Matchs à relancer" class="img-fluid">
+                    
+                                <div class="note-box animate-delay-3 bounce-in">
+                                    <strong><i class="bi bi-lightbulb-fill me-2"></i>Optimisation:</strong>
+                                    Exclusion des statuts non définis, car non pertinents pour concentrer les efforts sur les opportunités actionnables.
+                                </div>
+                                <div class="code-toolbar">
+                                    <span class="code-lang-badge">sql</span>
+                                </div>
+                    <pre class="code-block"><code class="language-sql">
+SELECT t.typologie,
+COUNT(m.id_match) AS matchs_a_relancer
+FROM match m
+JOIN typologie t ON m.typologie_id = t.id_typologie
+JOIN statut_match s ON m.statut_match_id = s.ID_statut_match
+WHERE s.statut_match IN ('relancer', 'Intérêt', 'Intention', 'A présenter', 'Stand by','Potentiel')
+GROUP BY COALESCE(t.typologie, 'Pas définie')
+ORDER BY matchs_a_relancer DESC;;</code></pre>
+                    <div class="code-footer">
+                        <span class="code-info">Requête d'analyse des opportunités à relancer</span>
+                    </div><div class="schema-caption">Répartition des opportunités à relancer par type d'investisseur</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: Visualisation Power BI -->
+<section class="section-card bg-light-teal animate-fade" id="visualization">
+    <div class="timeline">
+        <div class="timeline-step">
+            <h2 class="mb-4 section-title fade-in">
+                <i class="bi bi-graph-up-arrow me-3"></i>
+                5. Visualisation Power BI
+            </h2>
+            
+            <p class="animate-delay-1 slide-in-left">
+                Connexion via ODBC et création de dashboards interactifs pour le suivi des relations.
+            </p>
+            
+            <div class="row g-4">
+                <div class="col-md-6 animate-delay-2 slide-in-left">
+                    <div class="schema-container h-100">
+                        <div class="schema-preview">
+                            <i class="bi bi-eye-fill"></i>La startup ayant suscité le plus d’intérêt auprès des investisseurs est Itera Invest I, avec 25 deals réalisés
+                            principalement par des investisseurs de type Business Angels (BA)
+                        </div>
+                        <div class="schema-full">
+                            <img src="../Projets/image_match_startup/nbe de deals finnalisé.png" alt="Histogramme" class="img-fluid">
+                            <div class="schema-caption">Startups avec le plus de contacts investisseurs</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animate-delay-3 slide-in-right">
+                    <div class="schema-container h-100">
+                        <div class="schema-preview">
+                            <i class="bi bi-eye-fill"></i>En tenant compte que *Itera Invest I* a généré 25 deals principalement avec des Business Angels, on constate que cette
+                            typologie d’investisseurs domine clairement les engagements, avec 28 deals au total. Cela confirme que les BA sont le
+                            moteur principal des financements en early-stage, et qu’ils constituent la cible prioritaire pour maximiser l’impact
+                            commercial autour des startups à fort potentiel comme <i>"Itera Invest I"</i>.
+
+                        </div>
+                        <div class="schema-full">
+                            <img src="../Projets/image_match_startup/investisseur engagés.png" alt="Camembert" class="img-fluid">
+                            <div class="schema-caption">Répartition des investisseurs engagés par typologie</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 animate-delay-1 fade-in-up">
+                    <div class="schema-container">
+                        <div class="schema-preview">
+                            <i class="bi bi-eye-fill"></i> Les Business Angels (BA) dominent clairement le pipeline avec un grand nombre de dossiers envoyés et de relances à
+                            traiter, ce qui en fait la cible prioritaire pour maximiser les conversions. Les VC, CVC et autres typologies affichent
+                            des volumes plus faibles, nécessitant des suivis adaptés pour optimiser les opportunités selon leur profil
+                            d’investissement.
+                        </div>
+                        <div class="schema-full">
+                            <img src="../Projets/image_match_startup/statut des match.png" alt="Carte de chaleur" class="img-fluid">
+                            <div class="schema-caption">Tendances par type d'investisseur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="business-impact-card mt-4 animate-delay-2 bounce-in">
+                <h4 class="d-flex align-items-center">
+                    <i class="bi bi-speedometer2 me-2"></i> Impact Business
+                </h4>
+                <p>Ce dashboard permet de :</p>
+                <ul>
+                    <li>Suivre l'évolution des relations dans le temps</li>
+                    <li>Identifier rapidement les opportunités à fort potentiel</li>
+                    <li>Prioriser les actions commerciales</li>
+                    <li>Mesurer l'efficacité des stratégies de matchmaking</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- Key Takeaways -->
+        <section class="section-card bg-light-orange animate-fade" id="takeaways">
+            <h2 class="mb-4 section-title">
+                <i class="bi bi-check-circle-fill me-3"></i>
+                Résultats & Apprentissages
+            </h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6 animate-delay-1">
+                    <div class="takeaway-card bg-success-light">
+                        <h3 class="d-flex align-items-center">
+                            <i class="bi bi-check-lg me-2"></i> Succès
+                        </h3>
+                        <ul>
+                            <li>Automatisation complète du pipeline de données</li>
+                            <li>Réduction du temps de traitement manuel</li>
+                            <li>Identification des opportunités prioritaires</li>
+                            <li>Création d'un référentiel pour le suivi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 animate-delay-2">
+                    <div class="takeaway-card bg-danger-light">
+                        <h3 class="d-flex align-items-center">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i> Challenges
+                        </h3>
+                        <ul>
+                            <li>Gestion des noms de colonnes ambigus</li>
+                            <li>Normalisation des typologies d'investisseurs</li>
+                            <li>Connexion ODBC entre SQLite et Power BI</li>
+                            <li>Traitement des valeurs manquantes sans perte d'information</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box mt-4 animate-delay-3">
+                <h3 class="d-flex align-items-center">
+                    <i class="bi bi-lightbulb-fill me-2"></i> Bonnes Pratiques
+                </h3>
+                <ul>
+                    <li><strong>Documentation:</strong> Schéma de la base et dictionnaire de données</li>
+                    <li><strong>Sécurité:</strong> Manipulation en mémoire des données sensibles</li>
+                    <li><strong>Maintenance:</strong> Scripts modulaires et commentés</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+   <footer style="background-color: #212529; color: white; text-align: center; padding: 2rem 1rem; margin-top: 5rem;">
+    <div class="container">
+        <p style="margin-bottom: 1rem;">© 2025 François OKOLO – Tous droits réservés</p>
+        <div class="social-icons" style="display: flex; justify-content: center; gap: 1.5rem;">
+            <a class="social-icon" href="https://www.linkedin.com/in/fran%C3%A7ois-okolo-508318186/" target="_blank" style="color: white; font-size: 1.6rem; text-decoration: none;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a class="social-icon" href="https://github.com/zack-madiba" target="_blank" style="color: white; font-size: 1.6rem; text-decoration: none;">
+                <i class="fab fa-github"></i>
+            </a>
+            <a class="social-icon" href="mailto:ofralsesse@gmail.com"
+               onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=ofralsesse@gmail.com&su=Contact%20depuis%20le%20portfolio&body=Bonjour%20François%2C%0AJe%20souhaite%20en%20savoir%20plus%20sur%20votre%20profil', '_blank'); return false;"
+               target="_blank"
+               title="ofralsesse@gmail.com"
+               style="color: white; font-size: 1.6rem; text-decoration: none;">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a class="social-icon" href="https://wa.me/33636087016" target="_blank" style="color: white; font-size: 1.6rem; text-decoration: none;">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a class="social-icon" href="https://www.facebook.com/profile.php?id=100008535361432&locale=fr_FR" target="_blank" style="color: white; font-size: 1.6rem; text-decoration: none;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- CSS dynamique intégré -->
+    <style>
+        footer .social-icon {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        footer .social-icon:hover {
+            color: #ffc107 !important;
+            transform: scale(1.3);
+        }
+    </style>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            document.querySelectorAll('.animate-fade, .animate-slide').forEach(el => {
+                observer.observe(el);
+            });
+
+            // rajoute
+            
+            document.addEventListener('DOMContentLoaded', function() {
+            // Animation on scroll avec Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            document.querySelectorAll('.animate-fade, .animate-slide').forEach(el => {
+                observer.observe(el);
+            });
+
+            // === BOUTON FLOTTANT MODERNE ===
+            const floatingBtn = document.getElementById('floatingBtn');
+            
+            if (floatingBtn) {
+                let isVisible = false;
+
+                // Gestion de l'affichage avec debounce pour les performances
+                function handleScroll() {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const shouldShow = scrollTop > 300;
+
+                    if (shouldShow && !isVisible) {
+                        floatingBtn.classList.add('visible');
+                        isVisible = true;
+                    } else if (!shouldShow && isVisible) {
+                        floatingBtn.classList.remove('visible');
+                        isVisible = false;
+                    }
+                }
+
+                // Debounce pour optimiser les performances
+                let ticking = false;
+                function requestScroll() {
+                    if (!ticking) {
+                        requestAnimationFrame(handleScroll);
+                        ticking = true;
+                        setTimeout(() => { ticking = false; }, 16);
+                    }
+                }
+
+                window.addEventListener('scroll', requestScroll, { passive: true });
+
+                // Retour en haut avec animation ultra-fluide
+                floatingBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const start = window.pageYOffset;
+                    const startTime = performance.now();
+                    const duration = 800;
+
+                    function scrollAnimation(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        
+                        // Fonction d'easing pour un mouvement naturel
+                        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                        
+                        window.scrollTo(0, start * (1 - easeOutCubic));
+                        
+                        if (progress < 1) {
+                            requestAnimationFrame(scrollAnimation);
+                        }
+                    }
+                    
+                    requestAnimationFrame(scrollAnimation);
+                });
+            }
+
+            // Gestion des schémas qui se cachent/dévoilent
+            document.querySelectorAll('.schema-container').forEach(container => {
+                const preview = container.querySelector('.schema-preview');
+                const full = container.querySelector('.schema-full');
+                
+                if (preview && full) {
+                    full.style.display = 'none';
+                    
+                    container.addEventListener('mouseenter', function() {
+                        preview.style.display = 'none';
+                        full.style.display = 'block';
+                    });
+                    
+                    container.addEventListener('mouseleave', function() {
+                        preview.style.display = 'block';
+                        full.style.display = 'none';
+                    });
+                    
+                    container.addEventListener('click', function() {
+                        if (preview.style.display !== 'none') {
+                            preview.style.display = 'none';
+                            full.style.display = 'block';
+                        } else {
+                            preview.style.display = 'block';
+                            full.style.display = 'none';
+                        }
+                    });
+                }
+            });
+
+            // Fonctionnalité de copie pour les blocs de code
+            document.querySelectorAll('.code-copy-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const codeBlock = this.closest('.code-section').querySelector('.code-block');
+                    const codeText = codeBlock.innerText;
+                    
+                    navigator.clipboard.writeText(codeText).then(() => {
+                        const icon = this.querySelector('i');
+                        const originalClass = icon.className;
+                        icon.className = 'bi bi-check2';
+                        this.style.background = '#50fa7b';
+                        this.style.color = '#282a36';
+                        
+                        setTimeout(() => {
+                            icon.className = originalClass;
+                            this.style.background = '#44475a';
+                            this.style.color = '#f8f8f2';
+                        }, 2000);
+                    });
+                });
+            });
+
+            // Menu camembert
+            const pieToggle = document.getElementById('pie-toggle');
+            if (pieToggle) {
+                pieToggle.addEventListener('change', function() {
+                    document.body.style.overflow = this.checked ? 'hidden' : '';
+                });
+            }
+        });t
+           
+
+            floatingBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            
+
+            // Fonctionnalité de copie
+            document.querySelectorAll('.code-copy-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const codeBlock = this.closest('.code-section').querySelector('.code-block');
+                    const codeText = codeBlock.innerText;
+                    
+                    navigator.clipboard.writeText(codeText).then(() => {
+                        const icon = this.querySelector('i');
+                        const originalClass = icon.className;
+                        icon.className = 'bi bi-check2';
+                        this.style.background = '#50fa7b';
+                        this.style.color = '#282a36';
+                        
+                        setTimeout(() => {
+                            icon.className = originalClass;
+                            this.style.background = '#44475a';
+                            this.style.color = '#f8f8f2';
+                        }, 2000);
+                    });
+                });
+            });
+
+            // Menu camembert
+            const pieToggle = document.getElementById('pie-toggle');
+            pieToggle.addEventListener('change', function() {
+                document.body.style.overflow = this.checked ? 'hidden' : '';
+            });
+        });
+    </script>
+</body>
+</html>

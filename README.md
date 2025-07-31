@@ -2,7 +2,7 @@
 
 **Data Engineer en alternance**
 
-*[Ce portfolio](https://zack-madiba.github.io/Portfolio/]) met en avant mon parcours, mes compétences et mes projets dans le domaine de la data. Actuellement en formation Bac+5, je suis à la recherche d'une entreprise partenaire où je pourrai appliquer et approfondir mes connaissances en exploitation des données.*
+* [Ce portfolio](https://zack-madiba.github.io/Portfolio/ ]) met en avant mon parcours, mes compétences et mes projets dans le domaine de la data. Actuellement en formation Bac+5, je suis à la recherche d'une entreprise partenaire où je pourrai appliquer et approfondir mes connaissances en exploitation des données.*
 
 ## Formation
 
@@ -43,4 +43,4 @@ Grenoble, France
 
 **Analyse des relations Startups et Investisseurs :** Création d'un pipeline ETL (Google Sheets > Python, SQLite) avec visualisation des données via Power BI.
 
-Je vous invite à explorer les différentes pages de [Ce portfolio](https://zack-madiba.github.io/Portfolio/]) pour en apprendre davantage sur mes compétences et mon savoir-être. Je reste à votre disposition pour discuter de mes projets, qu'ils soient passés, en cours ou futurs, ainsi que des opportunités professionnelles qui pourraient se présenter.
+Je vous invite à explorer les différentes pages de [Ce portfolio](https://zack-madiba.github.io/Portfolio/ ]) pour en apprendre davantage sur mes compétences et mon savoir-être. Je reste à votre disposition pour discuter de mes projets, qu'ils soient passés, en cours ou futurs, ainsi que des opportunités professionnelles qui pourraient se présenter.

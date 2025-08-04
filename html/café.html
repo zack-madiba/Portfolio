@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse Complète des Ventes - Distributeur de Café</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/café.css">
+
+</head>
+
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-container" id="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="#enjeux">Enjeux Business</a></li>
+            <li class="nav-item"><a href="#workflow">Workflow de Données</a></li>
+            <li class="nav-item"><a href="#etl">ETL Process</a></li>
+            <li class="nav-item"><a href="#resultats">Résultats</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-badge">François OKOLO</div>
+            <h1 class="hero-title">Analyse Complète des Ventes</h1>
+            <p class="hero-subtitle">Pipeline ETL complet pour l'optimisation des décisions commerciales d'un
+                distributeur de café à New York</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Section I: Enjeux Business -->
+        <section class="section" id="enjeux">
+            <div class="container">
+                <h2 class="section-title">I. Enjeux Business</h2>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="bi bi-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="card-title">I-1. Problématique Business</h3>
+                        <div class="card-content">
+                            <p>L'enseigne fait face à un manque crucial de visibilité sur les performances de ses
+                                différents points de vente. Sans analyse approfondie des données transactionnelles,
+                                l'entreprise ne peut pas optimiser ses décisions commerciales ni identifier les
+                                tendances de consommation par période et localisation.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h3 class="card-title">I-2. Stratégie Commerciale</h3>
+                        <div class="card-content">
+                            <p>Développement d'une stratégie data-driven pour optimiser l'offre produit selon les
+                                préférences clients, identifier les créneaux horaires les plus rentables et ajuster la
+                                stratégie par quartier selon les spécificités locales de New York.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="bi bi-gear"></i>
+                        </div>
+                        <h3 class="card-title">I-3. Efficacité Opérationnelle</h3>
+                        <div class="card-content">
+                            <p>Amélioration de la planification des stocks et des ressources humaines grâce à l'analyse
+                                prédictive des patterns de consommation. Réduction des coûts opérationnels et
+                                augmentation de la satisfaction client par une meilleure anticipation de la demande.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section II: Workflow de Données -->
+        <section class="section" id="workflow">
+            <div class="container">
+                <h2 class="section-title">II. Workflow de Données</h2>
+
+                <!-- Image de workflow avec fallback -->
+                <div class="image-container">
+                    <img src="../assets/img/workflow_café.png" alt="Workflow des données"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <div class="image-placeholder" style="display: none;">
+                        <i class="bi bi-diagram-3"></i>
+                        <span>Workflow de Données - Diagramme ETL</span>
+                    </div>
+                </div>
+
+                <div class="workflow-container">
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="bi bi-download"></i>
+                        </div>
+                        <div class="workflow-content">
+                            <h3 class="workflow-title">II-1. Collecte des données</h3>
+                            <p>Pour collecter les données, nous nous sommes appuyer sur une script python fourni par
+                                kaggle. Ensuite nous avons stocké les données brutes dans une bdd postgres.
+                                Le dataset "Coffee Sales" contient 149,116 transactions avec horodatage, produits, prix
+                                unitaire, quantités, catégorie, type ... </p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+                        <div class="workflow-content">
+                            <h3 class="workflow-title">II-2. Processus Technique</h3>
+                            <p>Ce pipeline ETL automatisé intègre le téléchargement, le nettoyage, l'enrichissement
+                                temporel (jours, heures, saisons)
+                                et géographique (coordonnées GPS avec GeoPy), avant de structurer les données dans un
+                                modèle en étoile optimisé pour la
+                                BI. Stockées dans PostgreSQL, les données bénéficient d'une indexation stratégique pour
+                                des performances analytiques
+                                accrues. Le processus est robuste et traçable, avec gestion des doublons (<code
+                                    style="color: red;">ON CONFLICT DO NOTHING</code>) et sécurisation des
+                                transactions (<code style="color: red;">.rolllback</code>) pour garantir l'intégrité et
+                                la fiabilité du traitement..</p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i class="bi bi-diagram-3"></i>
+                        </div>
+                        <div class="workflow-content">
+                            <h3 class="workflow-title">II-3. Modélisation des Données</h3>
+                            <p>Les données nettoyées sont organisées selon un <strong>modèle en étoile
+                                    classique</strong>, comprenant :</p>
+                            <ul>
+                                <li><strong>Tables de dimensions</strong> (<span
+                                        style="color: rgb(16, 107, 129);">produit, catégorie, type, lieu, date,
+                                        saison</span>) décrivant les entités clés
+                                    avec leurs attributs détaillés ;</li>
+                                <li>Une <strong>table de faits</strong> (<code style="color: red;">fact_sales</code>)
+                                    centralisant les mesures transactionnelles
+                                    (<span style="color: rgb(16, 107, 129);">quantité, prix, identifiants liés aux
+                                        dimensions</span>).</li>
+                            </ul>
+                            <p>Ce schéma optimise les performances analytiques, facilite les requêtes agrégées et assure
+                                la cohérence des données
+                                via des clés étrangères et des contraintes d'intégrité.</p>
+                            <p>La structure respecte la <strong>3NF</strong> (troisième forme normale) pour éliminer la
+                                redondance et garantir
+                                l'intégrité des données.</p>
+
+                            <!-- Schéma BDD avec fallback -->
+                            <div class="image-container">
+                                <img src="../assets/img/shema_bdd_café.png"
+                                    alt="Schéma de Base de Données (Star Schema)"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                                <div class="image-placeholder" style="display: none;">
+                                    <i class="bi bi-diagram-2"></i>
+                                    <span>Schéma de Base de Données - Star Schema</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section III: ETL Process -->
+        <section class="section" id="etl">
+            <div class="container">
+                <h2 class="section-title">III. Script python : <br>Collecte, Transformation & chargement en BDD</h2>
+
+                <h3 class="subsection-title">III-1. Collecte</h3>
+                <p>Le script ci-dessous collecte les données et les stocque dans une bdd postgresql : du dataframe à la table.</p>
+
+                <div class="code-block">
+                    <pre><code class="language-python">
+<p>-> Téléchargement automatique depuis Kaggle</p>
+def download_dataset(path):
+    df = None
+    try:
+        path = kagglehub.dataset_download("ahmedabbas757/coffee-sales")
+        files = os.listdir(path)
+        excel_files = [f for f in files if f.endswith('.xlsx')]
+        if excel_files:
+            df = pd.read_excel(f"{path}/{excel_files[0]}")
+            shutil.rmtree(path)
+        else:
+            print("Aucun fichier CSV trouvé dans le dossier téléchargé.")
+    except Exception as e:
+        print(f"Erreur : {e}")
+
+    return df
+
+download_dataset("coffee_sales")
+df = download_dataset("coffee_sales")
+</code></pre>
+                </div>
+
+<div class="code-block">
+<pre><code class="language-python">
+<p>-> Connexion à postgres et création de la base si elle n'existe pas</p>
+conn = psycopg2.connect(host="localhost", dbname="######", user="####", password="#####", port="####")
+conn.autocommit = True
+cur = conn.cursor()
+cur.execute("SELECT 1 FROM pg_database WHERE datname = 'coffee_sales'")
+if not cur.fetchone():
+cur.execute("CREATE DATABASE coffee_sales ENCODING 'UTF8';")
+print("Base 'coffee_sales' créée.")
+else:
+print("La base 'coffee_sales' existe déjà.")
+cur.close()
+conn.close()
+</code></pre>
+</div>
+ <div class="code-block">
+<pre><code class="language-python">
+<p>-> Connexion avec SQLAlchemy et envoie du conteneu du DF dans la bdd</p>
+engine = create_engine('postgresql+psycopg2://postgres:1212@localhost:5432/coffee_sales')
+df.to_sql('coffee_sales', engine, if_exists='replace', chunksize=1700, index=False)
+print("Table coffee_sales créée avec succès.")
+</code></pre>
+                </div>
+
+                <h3 class="subsection-title">III-2. Nettoyage & Transformation</h3>
+                <p>Enrichissement temporel des données avec extraction des heures, jours, mois et saisons, depuis les colonnes <code style="color: rosybrown;">dfcopy["transaction_time"]</code> 
+                    et <code style="color: rosybrown;">dfcopy["transaction_date"]</code>  afin de faciliter les états et l'analyse comportementale des consommateurs. 
+                    pour le segmenter calcul du chiffre d'affaires selon différentes périodes et effectuer une analyse comportementale des
+                    consommateurs..</p>
+
+                <div class="code-block">
+                    <pre><code> 
+dfcopy["hour"] = pd.to_datetime(dfcopy["transaction_time"], format="%H:%M:%S").dt.hour
+dfcopy["day"] = dfcopy["transaction_date"].dt.day
+dfcopy["month"] = dfcopy["transaction_date"].dt.strftime("%B")
+dfcopy["weekday"] = dfcopy["transaction_date"].dt.strftime("%A")
+dfcopy["time_slot"] = dfcopy["hour"].apply(get_tranche_horaire)
+dfcopy["season"] = dfcopy["month"].map(seasons)
+dfcopy["recipe"] = dfcopy["transaction_qty"] * dfcopy["unit_price"]</code></pre>
+                </div>
+
+<p>Ajout d'une colonne <code style="color: rosybrown;">dfcopy["time_slot"]</code> pour une mesure selon les saisons. </p>
+<div class="code-block">
+<pre><code> 
+seasons = {"March": "spring", "April": "spring", "May": "spring",
+"June": "summer", "July": "summer", "August": "summer",
+"September": "autumn", "October": "autumn", "November": "autumn",
+"December": "winter", "January": "winter", "February": "winter"}
+dfcopy["season"] = dfcopy["month"].map(seasons) 
+
+</code></pre>
+</div>
+
+<p>On enrichi avec une API de geolocalisation, pour pouvoir situer les differents secteurs de vente sur une map.</p>
+<div class="code-block">
+<pre><code class="language-python">
+geolocator = Nominatim(user_agent="geoapi")
+unique_stores = dfcopy['store_location'].dropna().unique()
+locations = []
+
+for store in unique_stores:
+try:
+location = geolocator.geocode(store + ", New York, USA", timeout=10)
+if location:
+locations.append({"store_name": store, "latitude": location.latitude, "longitude": location.longitude})
+else:
+locations.append({"store_name": store, "latitude": None, "longitude": None})
+time.sleep(1)
+except Exception as e:
+print(f"Erreur avec {store}: {e}")
+
+geo_df = pd.DataFrame(locations)
+coord_dict = geo_df.set_index("store_name").to_dict("index")
+dfcopy[["latitude", "longitude"]] = pd.DataFrame(dfcopy["store_location"].map(lambda x: coord_dict.get(x, {"latitude":
+None, "longitude": None})).tolist(), index=dfcopy.index)
+dfcopy['latitude'] = pd.to_numeric(dfcopy['latitude'], errors='coerce')
+dfcopy['longitude'] = pd.to_numeric(dfcopy['longitude'], errors='coerce')
+dfcopy['recipe'] = pd.to_numeric(dfcopy['recipe'], errors='coerce')
+dfcopy = dfcopy.dropna(subset=['latitude', 'longitude'])
+
+#Clean dataframe to postgres bdd
+dfcopy.to_sql('coffee_sales', engine, if_exists='replace', chunksize=1700, index=False)
+</code></pre>
+</div>
+
+
+                <h3 class="subsection-title">III-3. Base de Données PostgreSQL</h3>
+                <p>Schéma de la table : requêtes de creation et d'affectation des clés primaires et etrangères, et contraintes d'unicité</p>
+<div class="code-block">
+    <pre><code class="language-sql"> 
+schemas = [
+"""CREATE TABLE IF NOT EXISTS product_categorie (id_categorie SERIAL PRIMARY KEY, categorie VARCHAR(50) UNIQUE);""",
+"""CREATE TABLE IF NOT EXISTS product_type (id_type SERIAL PRIMARY KEY, type VARCHAR(50) UNIQUE);""",
+"""CREATE TABLE IF NOT EXISTS location_sales (id_location SERIAL PRIMARY KEY, store_location VARCHAR(100) UNIQUE,
+latitude FLOAT, longitude FLOAT);""",
+"""CREATE TABLE IF NOT EXISTS date_sales (id_date SERIAL PRIMARY KEY, full_date DATE UNIQUE, day INT, weekday
+VARCHAR(50), month VARCHAR(50), year INT, hour INT, time_slot VARCHAR(25));""",
+"""CREATE TABLE IF NOT EXISTS season (id_season SERIAL PRIMARY KEY, name VARCHAR(50) UNIQUE);""",
+"""CREATE TABLE IF NOT EXISTS product (product_id SERIAL PRIMARY KEY, product_detail VARCHAR(255) UNIQUE, id_categorie
+INT REFERENCES product_categorie(id_categorie), id_type INT REFERENCES product_type(id_type), unit_price
+DECIMAL(10,2));""",
+"""CREATE TABLE IF NOT EXISTS fact_sales (id_transaction INT PRIMARY KEY, product_id INT REFERENCES product(product_id),
+location_id INT REFERENCES location_sales(id_location), date_id INT REFERENCES date_sales(id_date), season_id INT
+REFERENCES season(id_season), quantity INT, unit_price DECIMAL(10,2));"""
+]
+    </code></pre>
+</div>
+<p>Requêtes d'insertion et de gestion des conflits <code style="color:crimson;">"ON CONFLICT... DO NOTHING"</code> lors de ces insertions. <br>
+    Et en s'assurant que les type soit compatibles <code style="color:crimson;">"...CAST(... AS ...)"</code>.</p>
+<div class="code-block">
+    <pre><code class="language-sql"> 
+inserts = [
+"""INSERT INTO product_categorie (categorie) SELECT DISTINCT product_category FROM coffee_sales ON CONFLICT (categorie)
+DO NOTHING;""",
+"""INSERT INTO product_type (type) SELECT DISTINCT product_type FROM coffee_sales ON CONFLICT (type) DO NOTHING;""",
+"""INSERT INTO location_sales (store_location, latitude, longitude) SELECT DISTINCT store_location, latitude, longitude
+FROM coffee_sales ON CONFLICT (store_location) DO NOTHING;""",
+"""INSERT INTO date_sales (full_date, day, weekday, month, year, hour, time_slot) SELECT DISTINCT
+transaction_date::DATE, day, weekday, month, year, hour, time_slot FROM coffee_sales ON CONFLICT (full_date) DO
+NOTHING;""",
+"""INSERT INTO season (name) SELECT DISTINCT season FROM coffee_sales ON CONFLICT (name) DO NOTHING;""",
+"""INSERT INTO product (product_detail, id_categorie, id_type, unit_price) SELECT DISTINCT cs.product_detail,
+pc.id_categorie, pt.id_type, cs.unit_price FROM coffee_sales cs JOIN product_categorie pc ON cs.product_category =
+pc.categorie JOIN product_type pt ON cs.product_type = pt.type ON CONFLICT (product_detail) DO NOTHING;""",
+"""INSERT INTO fact_sales (id_transaction, product_id, location_id, date_id, season_id, quantity, unit_price) SELECT
+cs.transaction_id, p.product_id, ls.id_location, ds.id_date, s.id_season, cs.transaction_qty, cs.unit_price FROM
+coffee_sales cs JOIN product p ON cs.product_detail = p.product_detail JOIN location_sales ls ON CAST(cs.store_location
+AS VARCHAR) = ls.store_location JOIN date_sales ds ON cs.transaction_date::DATE = ds.full_date JOIN season s ON
+cs.season = s.name;"""
+]
+</code></pre>
+</div>
+<p>Création des indexes pour optimiser les performances de requêtes.
+    <code style="color: crimson;"><b>"ANALYZE fact_sales"</b></code> met à jour les statistiques du moteur de base de données sur la table <b>fact_sales</b>. Cela
+    permet au planificateur de requêtes d’optimiser ses choix lorsqu’il exécute des instructions SQL (comme des jointures,
+    des filtres, etc).
+</p>
+<div class="code-block">
+    <pre><code class="language-sql">
+# Indexation
+conn.execute(text("""
+CREATE INDEX IF NOT EXISTS idx_fact_sales_product ON fact_sales(product_id);
+CREATE INDEX IF NOT EXISTS idx_fact_sales_location ON fact_sales(location_id);
+CREATE INDEX IF NOT EXISTS idx_fact_sales_date ON fact_sales(date_id);
+CREATE INDEX IF NOT EXISTS idx_fact_sales_season ON fact_sales(season_id);
+CREATE INDEX IF NOT EXISTS idx_fact_composite ON fact_sales(product_id, date_id);
+ANALYZE fact_sales;
+"""))
+</code></pre>
+</div>
+<p>Vérification de l'intégrité des données, en cas d'erreur, lors de la creation des index, on annule les changements avec
+<code style="color: crimson;">conn.rollback()</code></p>
+</code>
+<div class="code-block">
+<pre><code class="language-python">
+trans.commit()
+print("Operation completed successfully: tables created, data loaded, and indexes optimized")
+except Exception as e:
+trans.rollback()
+print("Error occurred:", e)</code></pre>
+</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">149,116</div>
+                        <div class="stat-label">Transactions Traitées</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Tables Créées</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Indexes Optimisés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Intégrité Données</div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">III-4. Analyse des Données et Visualisation</h3>
+
+<div class="card">
+    <h4 class="card-title">Ventes par Saison et Secteur</h4>
+    <div class="card-content">
+        <p>Analyse saisonnière révélant une forte corrélation entre la température et la consommation de boissons
+            chaudes. On constate ici qu'en été, la consommation chute drastiquement, contrairement au printemps. Le
+            résultat de la saison d'hiver est peu concluant par manque de données.</p>
+        <div class="image-container" style="margin-top: 1rem;">
+            <img src="../assets/img/vente par saison_quartier_café.png"
+                alt="Graphique des ventes par catégorie"
+                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
+                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h4 class="card-title">Recette par Catégorie</h4>
+    <div class="card-content">
+        <p>Analyse globale des recettes classées par catégorie de produit. On voit que le café et le tea sont les produits les plus rentables.</p>
+        <div class="image-container" style="margin-top: 1rem;">
+            <img src="../assets/img/recette globale par categorie_café.png"
+                alt="Graphique des ventes par saison et quartier"
+                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
+                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h4 class="card-title">Ventes par Heure sur une semaine Complète</h4>
+    <div class="card-content">
+<p>Analyse globale des ventes par heure sur une semaine complète. On observe des pics de consommation le lundi à 11h (debut de semaine) et le vendredi à 15h (fin de semaine - debut de weekend).</p>
+<div class="image-container" style="margin-top: 1rem;">
+<img src="../assets/img/ventes par heures des jours de la semaine_cafépng.png"
+                alt="Graphique des ventes par heure sur une semaine complète"
+                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
+                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
+        </div>
+    </div>
+</div>
+<div class="card">
+    <h4 class="card-title">Recette par Catégorie et Mois</h4>
+    <div class="card-content">
+        <p>Analyse globale des ventes par heure sur une semaine complète. On observe des pics de consommation le lundi à
+            11h (debut de semaine) et le vendredi à 15h (fin de semaine - debut de weekend).</p>
+        <div class="image-container" style="margin-top: 1rem;">
+            <img src="../assets/img/recette par categorie et par mois_café.png"
+                alt="Graphique des ventes par catégorie et par mois"
+                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
+                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
+        </div>
+    </div>
+</div>
+                <div class="card">
+                    <p>Ces analyses permettent de mieux comprendre les comportements d'achat des clients, d'identifier les
+                    produits les plus rentables et de planifier les stratégies commerciales en conséquence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section IV: Résultats & Apprentissages -->
+        <section class="section" id="resultats">
+            <div class="container">
+                <h2 class="section-title">IV. Résultats & Apprentissages</h2>
+
+<div class="card-grid">
+    <div class="card">
+        <div class="card-icon">
+            <i class="bi bi-trophy"></i>
+        </div>
+        <h3 class="card-title">IV-1. Succès</h3>
+        <div class="card-content">
+            <ul>
+                <li>Modularité du code pour réutilisabilité</li>
+                <li>Gestion robuste des erreurs</li>
+                <li>Documentation inline complète</li>
+                <li>Indexation stratégique des tables</li>
+                <li>Validation des types de données</li>
+                <li>Tests unitaires sur transformations</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">
+            <i class="bi bi-laptop"></i>
+        </div>
+        <h3 class="card-title">IV-2. Stack Technique</h3>
+        <div class="card-content">
+            <ul>
+                <li><i class="bi bi-code-slash" style="color: var(--primary-color);"></i> <strong>Python 3.x</strong>
+                </li>
+                <li><i class="bi bi-database" style="color: var(--secondary-color);"></i> <strong>PostgreSQL</strong>
+                </li>
+                <li><i class="bi bi-gear" style="color: var(--accent-color);"></i> <strong>SQLAlchemy</strong></li>
+                <li><i class="bi bi-table" style="color: var(--primary-color);"></i> <strong>Pandas</strong></li>
+                <li><i class="bi bi-geo-alt" style="color: var(--secondary-color);"></i> <strong>GeoPy</strong></li>
+                <li><i class="bi bi-cloud-download" style="color: var(--accent-color);"></i> <strong>KaggleHub</strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                
+              
+
+
+                <!-- Code samples des requêtes principales -->
+                <div style="margin-top: 3rem;">
+                    <h3 class="subsection-title">Quelques requêtes d'Exploitation Clés</h3>
+
+                    <div class="card">
+                        <h4 class="card-title">Top 5 Produits par Recette Globale</h4>
+                        <div class="code-block">
+                            <pre><code>SELECT 
+    p.product_detail AS "Produit", 
+    pc.categorie AS Categorie,
+    pt.type AS Type,
+    TO_CHAR(SUM(fs.quantity * fs.unit_price), 'FM999999990.00 €') AS Recette,
+    ls.store_location AS Ville
+FROM fact_sales AS fs
+JOIN product AS p ON fs.product_id = p.product_id
+JOIN product_categorie AS pc ON pc.id_categorie = p.id_categorie  
+JOIN product_type AS pt ON pt.id_type = p.id_type
+JOIN location_sales AS ls ON ls.id_location = fs.location_id
+GROUP BY p.product_detail, pc.categorie, pt.type, ls.store_location
+ORDER BY SUM(fs.quantity * fs.unit_price) DESC
+LIMIT 5;</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4 class="card-title">Analyse Temporelle avec CTE</h4>
+                        <div class="code-block">
+                            <pre><code>WITH ventes_mensuelles AS (
+    SELECT 
+        p.product_detail AS produit,
+        DATE_TRUNC('month', ds.full_date) AS mois,
+        SUM(fs.quantity * fs.unit_price) AS recette
+    FROM fact_sales fs
+    JOIN product p ON fs.product_id = p.product_id
+    JOIN date_sales ds ON fs.date_id = ds.id_date
+    GROUP BY produit, mois
+),
+classement AS (
+    SELECT *,
+           RANK() OVER (PARTITION BY mois ORDER BY recette DESC) AS rang
+    FROM ventes_mensuelles
+)
+SELECT mois, produit, recette
+FROM classement
+WHERE rang = 1
+ORDER BY mois;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+<section style="background: var(--gradient-primary); color: white; padding: 3rem 0; text-align: center;">
+    <div class="container">
+        <h3 style="margin-bottom: 1rem;">Projet Data Engineering Complet</h3>
+       
+
+        <!-- ✅ Points forts du projet -->
+        <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>149K+ Transactions Traitées</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Pipeline 100% Automatisé</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Modèle Star Schema Optimisé</span>
+            </div>
+        </div>
+
+        <!-- Mention légale -->
+        <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+            <p>© 2025 François OKOLO - Tous droits réservés</p>
+        </div>
+
+        <!-- Icônes sociales -->
+        <div class="social-icons" style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem;">
+            <a href="https://www.linkedin.com/in/fran%C3%A7ois-okolo-508318186/" target="_blank"
+                style="color: white; font-size: 1.6rem;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/zack-madiba" target="_blank" style="color: white; font-size: 1.6rem;">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:ofralsesse@gmail.com"
+                onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=ofralsesse@gmail.com&su=Contact%20depuis%20le%20portfolio&body=Bonjour%20François%2C%0AJe%20souhaite%20en%20savoir%20plus%20sur%20votre%20profil', '_blank'); return false;"
+                target="_blank" title="ofralsesse@gmail.com" style="color: white; font-size: 1.6rem;">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://wa.me/33636087016" target="_blank" style="color: white; font-size: 1.6rem;">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100008535361432&locale=fr_FR" target="_blank"
+                style="color: white; font-size: 1.6rem;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <!-- Bouton flottant -->
+    <a href="../html/acceuil.html" class="floating-btn" id="floatingBtn" aria-label="Retour à l'accueil"
+        title="Revenir à l'accueil">
+        <i class="bi bi-arrow-up"></i>
+        <span class="floating-tooltip">Revenir à l'accueil</span>
+    </a>
+
+    <script>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observer toutes les sections
+        document.querySelectorAll('.section, .workflow-step').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navigation fixe
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 100) {
+                navbar.classList.add('visible');
+            } else {
+                navbar.classList.remove('visible');
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        // Barre de progression
+        const progressBar = document.getElementById('progressBar');
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+
+        // Navigation smooth
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation des cartes statistiques corrigée
+        const animateStats = () => {
+            document.querySelectorAll('.stat-number').forEach(stat => {
+                const text = stat.textContent;
+                let target = 0;
+                let prefix = '';
+                let suffix = '';
+
+                // Gestion des différents formats
+                if (text.includes('%')) {
+                    target = parseInt(text.replace('%', ''));
+                    suffix = '%';
+                } else if (text.includes('+')) {
+                    target = parseInt(text.replace('+', '').replace('%', ''));
+                    prefix = '+';
+                    suffix = text.includes('%') ? '%' : '';
+                } else if (text.includes('-')) {
+                    target = parseInt(text.replace('-', '').replace('%', ''));
+                    prefix = '-';
+                    suffix = text.includes('%') ? '%' : '';
+                } else if (text.includes('K')) {
+                    target = parseInt(text.replace('K+', '').replace('K', ''));
+                    suffix = 'K+';
+                } else {
+                    target = parseInt(text.replace(/[^\d]/g, ''));
+                }
+
+                if (target > 0) {
+                    let current = 0;
+                    const increment = target / 30;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        stat.textContent = prefix + Math.floor(current) + suffix;
+                    }, 50);
+                }
+            });
+        };
+
+        // Observer pour les stats
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.stats-grid').forEach(grid => {
+            statsObserver.observe(grid);
+        });
+
+        // Animation des workflow steps
+        const workflowObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.workflow-step').forEach(step => {
+            workflowObserver.observe(step);
+        });
+
+        // Gestion du bouton flottant
+        const floatingBtn = document.getElementById('floatingBtn');
+
+        // Style initial
+        floatingBtn.style.opacity = '0';
+        floatingBtn.style.visibility = 'hidden';
+        floatingBtn.style.transition = 'all 0.3s ease';
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                floatingBtn.style.opacity = '1';
+                floatingBtn.style.visibility = 'visible';
+            } else {
+                floatingBtn.style.opacity = '0';
+                floatingBtn.style.visibility = 'hidden';
+            }
+        });
+
+        // Amélioration de l'effet parallax
+        let ticking = false;
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('.hero-section');
+            const speed = scrolled * 0.3;
+
+            if (heroSection) {
+                heroSection.style.transform = `translate3d(0, ${speed}px, 0)`;
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        });
+
+        // Animation de typing pour le titre
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Lancement des animations au chargement
+        window.addEventListener('load', () => {
+            // Animation du titre avec un léger délai
+            setTimeout(() => {
+                const heroTitle = document.querySelector('.hero-title');
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 80);
+            }, 500);
+        });
+
+        // Effet de particules sur le hero
+        function createParticles() {
+            const heroSection = document.querySelector('.hero-section');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 4 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = 'rgba(255, 255, 255, 0.3)';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animation = `float ${Math.random() * 3 + 2}s ease-in-out infinite`;
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                heroSection.appendChild(particle);
+            }
+        }
+
+        // Activation des particules après chargement
+        setTimeout(createParticles, 1000);
+
+        console.log('🚀 Page Data Engineering chargée avec succès !');
+    </script>
+    
+</body>
+
+</html>

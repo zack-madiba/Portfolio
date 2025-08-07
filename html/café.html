@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/café.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analyse Complète des Ventes - Distributeur de Café</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/café.css">
 
 </head>
 
@@ -175,12 +177,13 @@
         </section>
 
         <!-- Section III: ETL Process -->
-        <section class="section" id="etl">
+            <div> 
             <div class="container">
                 <h2 class="section-title">III. Script python : <br>Collecte, Transformation & chargement en BDD</h2>
 
                 <h3 class="subsection-title">III-1. Collecte</h3>
-                <p>Le script ci-dessous collecte les données et les stocque dans une bdd postgresql : du dataframe à la table.</p>
+                <p>Le script ci-dessous collecte les données et les stocque dans une bdd postgresql : du dataframe à la
+                    table.</p>
 
                 <div class="code-block">
                     <pre><code class="language-python">
@@ -206,8 +209,8 @@ df = download_dataset("coffee_sales")
 </code></pre>
                 </div>
 
-<div class="code-block">
-<pre><code class="language-python">
+                <div class="code-block">
+                    <pre><code class="language-python">
 <p>-> Connexion à postgres et création de la base si elle n'existe pas</p>
 conn = psycopg2.connect(host="localhost", dbname="######", user="####", password="#####", port="####")
 conn.autocommit = True
@@ -221,9 +224,9 @@ print("La base 'coffee_sales' existe déjà.")
 cur.close()
 conn.close()
 </code></pre>
-</div>
- <div class="code-block">
-<pre><code class="language-python">
+                </div>
+                <div class="code-block">
+                    <pre><code class="language-python">
 <p>-> Connexion avec SQLAlchemy et envoie du conteneu du DF dans la bdd</p>
 engine = create_engine('postgresql+psycopg2://postgres:1212@localhost:5432/coffee_sales')
 df.to_sql('coffee_sales', engine, if_exists='replace', chunksize=1700, index=False)
@@ -232,9 +235,12 @@ print("Table coffee_sales créée avec succès.")
                 </div>
 
                 <h3 class="subsection-title">III-2. Nettoyage & Transformation</h3>
-                <p>Enrichissement temporel des données avec extraction des heures, jours, mois et saisons, depuis les colonnes <code style="color: rosybrown;">dfcopy["transaction_time"]</code> 
-                    et <code style="color: rosybrown;">dfcopy["transaction_date"]</code>  afin de faciliter les états et l'analyse comportementale des consommateurs. 
-                    pour le segmenter calcul du chiffre d'affaires selon différentes périodes et effectuer une analyse comportementale des
+                <p>Enrichissement temporel des données avec extraction des heures, jours, mois et saisons, depuis les
+                    colonnes <code style="color: rosybrown;">dfcopy["transaction_time"]</code>
+                    et <code style="color: rosybrown;">dfcopy["transaction_date"]</code> afin de faciliter les états et
+                    l'analyse comportementale des consommateurs.
+                    pour le segmenter calcul du chiffre d'affaires selon différentes périodes et effectuer une analyse
+                    comportementale des
                     consommateurs..</p>
 
                 <div class="code-block">
@@ -248,9 +254,10 @@ dfcopy["season"] = dfcopy["month"].map(seasons)
 dfcopy["recipe"] = dfcopy["transaction_qty"] * dfcopy["unit_price"]</code></pre>
                 </div>
 
-<p>Ajout d'une colonne <code style="color: rosybrown;">dfcopy["time_slot"]</code> pour une mesure selon les saisons. </p>
-<div class="code-block">
-<pre><code> 
+                <p>Ajout d'une colonne <code style="color: rosybrown;">dfcopy["time_slot"]</code> pour une mesure selon
+                    les saisons. </p>
+                <div class="code-block">
+                    <pre><code> 
 seasons = {"March": "spring", "April": "spring", "May": "spring",
 "June": "summer", "July": "summer", "August": "summer",
 "September": "autumn", "October": "autumn", "November": "autumn",
@@ -258,11 +265,12 @@ seasons = {"March": "spring", "April": "spring", "May": "spring",
 dfcopy["season"] = dfcopy["month"].map(seasons) 
 
 </code></pre>
-</div>
+                </div>
 
-<p>On enrichi avec une API de geolocalisation, pour pouvoir situer les differents secteurs de vente sur une map.</p>
-<div class="code-block">
-<pre><code class="language-python">
+                <p>On enrichi avec une API de geolocalisation, pour pouvoir situer les differents secteurs de vente sur
+                    une map.</p>
+                <div class="code-block">
+                    <pre><code class="language-python">
 geolocator = Nominatim(user_agent="geoapi")
 unique_stores = dfcopy['store_location'].dropna().unique()
 locations = []
@@ -290,13 +298,14 @@ dfcopy = dfcopy.dropna(subset=['latitude', 'longitude'])
 #Clean dataframe to postgres bdd
 dfcopy.to_sql('coffee_sales', engine, if_exists='replace', chunksize=1700, index=False)
 </code></pre>
-</div>
+                </div>
 
 
                 <h3 class="subsection-title">III-3. Base de Données PostgreSQL</h3>
-                <p>Schéma de la table : requêtes de creation et d'affectation des clés primaires et etrangères, et contraintes d'unicité</p>
-<div class="code-block">
-    <pre><code class="language-sql"> 
+                <p>Schéma de la table : requêtes de creation et d'affectation des clés primaires et etrangères, et
+                    contraintes d'unicité</p>
+                <div class="code-block">
+                    <pre><code class="language-sql"> 
 schemas = [
 """CREATE TABLE IF NOT EXISTS product_categorie (id_categorie SERIAL PRIMARY KEY, categorie VARCHAR(50) UNIQUE);""",
 """CREATE TABLE IF NOT EXISTS product_type (id_type SERIAL PRIMARY KEY, type VARCHAR(50) UNIQUE);""",
@@ -313,11 +322,13 @@ location_id INT REFERENCES location_sales(id_location), date_id INT REFERENCES d
 REFERENCES season(id_season), quantity INT, unit_price DECIMAL(10,2));"""
 ]
     </code></pre>
-</div>
-<p>Requêtes d'insertion et de gestion des conflits <code style="color:crimson;">"ON CONFLICT... DO NOTHING"</code> lors de ces insertions. <br>
-    Et en s'assurant que les type soit compatibles <code style="color:crimson;">"...CAST(... AS ...)"</code>.</p>
-<div class="code-block">
-    <pre><code class="language-sql"> 
+                </div>
+                <p>Requêtes d'insertion et de gestion des conflits <code
+                        style="color:crimson;">"ON CONFLICT... DO NOTHING"</code> lors de ces insertions. <br>
+                    Et en s'assurant que les type soit compatibles <code
+                        style="color:crimson;">"...CAST(... AS ...)"</code>.</p>
+                <div class="code-block">
+                    <pre><code class="language-sql"> 
 inserts = [
 """INSERT INTO product_categorie (categorie) SELECT DISTINCT product_category FROM coffee_sales ON CONFLICT (categorie)
 DO NOTHING;""",
@@ -338,14 +349,16 @@ AS VARCHAR) = ls.store_location JOIN date_sales ds ON cs.transaction_date::DATE 
 cs.season = s.name;"""
 ]
 </code></pre>
-</div>
-<p>Création des indexes pour optimiser les performances de requêtes.
-    <code style="color: crimson;"><b>"ANALYZE fact_sales"</b></code> met à jour les statistiques du moteur de base de données sur la table <b>fact_sales</b>. Cela
-    permet au planificateur de requêtes d’optimiser ses choix lorsqu’il exécute des instructions SQL (comme des jointures,
-    des filtres, etc).
-</p>
-<div class="code-block">
-    <pre><code class="language-sql">
+                </div>
+                <p>Création des indexes pour optimiser les performances de requêtes.
+                    <code style="color: crimson;"><b>"ANALYZE fact_sales"</b></code> met à jour les statistiques du
+                    moteur de base de données sur la table <b>fact_sales</b>. Cela
+                    permet au planificateur de requêtes d’optimiser ses choix lorsqu’il exécute des instructions SQL
+                    (comme des jointures,
+                    des filtres, etc).
+                </p>
+                <div class="code-block">
+                    <pre><code class="language-sql">
 # Indexation
 conn.execute(text("""
 CREATE INDEX IF NOT EXISTS idx_fact_sales_product ON fact_sales(product_id);
@@ -356,18 +369,20 @@ CREATE INDEX IF NOT EXISTS idx_fact_composite ON fact_sales(product_id, date_id)
 ANALYZE fact_sales;
 """))
 </code></pre>
-</div>
-<p>Vérification de l'intégrité des données, en cas d'erreur, lors de la creation des index, on annule les changements avec
-<code style="color: crimson;">conn.rollback()</code></p>
-</code>
-<div class="code-block">
-<pre><code class="language-python">
+                </div>
+                <p>Vérification de l'intégrité des données, en cas d'erreur, lors de la creation des index, on annule
+                    les changements avec
+                    <code style="color: crimson;">conn.rollback()</code>
+                </p>
+                </code>
+                <div class="code-block">
+                    <pre><code class="language-python">
 trans.commit()
 print("Operation completed successfully: tables created, data loaded, and indexes optimized")
 except Exception as e:
 trans.rollback()
 print("Error occurred:", e)</code></pre>
-</div>
+                </div>
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-number">149,116</div>
@@ -389,113 +404,126 @@ print("Error occurred:", e)</code></pre>
 
                 <h3 class="subsection-title">III-4. Analyse des Données et Visualisation</h3>
 
-<div class="card">
-    <h4 class="card-title">Ventes par Saison et Secteur</h4>
-    <div class="card-content">
-        <p>Analyse saisonnière révélant une forte corrélation entre la température et la consommation de boissons
-            chaudes. On constate ici qu'en été, la consommation chute drastiquement, contrairement au printemps. Le
-            résultat de la saison d'hiver est peu concluant par manque de données.</p>
-        <div class="image-container" style="margin-top: 1rem;">
-            <img src="../assets/img/vente par saison_quartier_café.png"
-                alt="Graphique des ventes par catégorie"
-                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
-                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
-        </div>
-    </div>
-</div>
-
-<div class="card">
-    <h4 class="card-title">Recette par Catégorie</h4>
-    <div class="card-content">
-        <p>Analyse globale des recettes classées par catégorie de produit. On voit que le café et le tea sont les produits les plus rentables.</p>
-        <div class="image-container" style="margin-top: 1rem;">
-            <img src="../assets/img/recette globale par categorie_café.png"
-                alt="Graphique des ventes par saison et quartier"
-                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
-                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
-        </div>
-    </div>
-</div>
-
-<div class="card">
-    <h4 class="card-title">Ventes par Heure sur une semaine Complète</h4>
-    <div class="card-content">
-<p>Analyse globale des ventes par heure sur une semaine complète. On observe des pics de consommation le lundi à 11h (debut de semaine) et le vendredi à 15h (fin de semaine - debut de weekend).</p>
-<div class="image-container" style="margin-top: 1rem;">
-<img src="../assets/img/ventes par heures des jours de la semaine_cafépng.png"
-                alt="Graphique des ventes par heure sur une semaine complète"
-                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
-                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
-        </div>
-    </div>
-</div>
-<div class="card">
-    <h4 class="card-title">Recette par Catégorie et Mois</h4>
-    <div class="card-content">
-        <p>Analyse globale des ventes par heure sur une semaine complète. On observe des pics de consommation le lundi à
-            11h (debut de semaine) et le vendredi à 15h (fin de semaine - debut de weekend).</p>
-        <div class="image-container" style="margin-top: 1rem;">
-            <img src="../assets/img/recette par categorie et par mois_café.png"
-                alt="Graphique des ventes par catégorie et par mois"
-                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
-                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
-        </div>
-    </div>
-</div>
                 <div class="card">
-                    <p>Ces analyses permettent de mieux comprendre les comportements d'achat des clients, d'identifier les
-                    produits les plus rentables et de planifier les stratégies commerciales en conséquence.</p>
+                    <h4 class="card-title">Ventes par Saison et Secteur</h4>
+                    <div class="card-content">
+                        <p>Analyse saisonnière révélant une forte corrélation entre la température et la consommation de
+                            boissons
+                            chaudes. On constate ici qu'en été, la consommation chute drastiquement, contrairement au
+                            printemps. Le
+                            résultat de la saison d'hiver est peu concluant par manque de données.</p>
+                        <div class="image-container" style="margin-top: 1rem;">
+                            <img src="../assets/img/vente par saison_quartier_café.png"
+                                alt="Graphique des ventes par catégorie"
+                                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
+                                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4 class="card-title">Recette par Catégorie</h4>
+                    <div class="card-content">
+                        <p>Analyse globale des recettes classées par catégorie de produit. On voit que le café et le tea
+                            sont les produits les plus rentables.</p>
+                        <div class="image-container" style="margin-top: 1rem;">
+                            <img src="../assets/img/recette globale par categorie_café.png"
+                                alt="Graphique des ventes par saison et quartier"
+                                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
+                                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4 class="card-title">Ventes par Heure sur une semaine Complète</h4>
+                    <div class="card-content">
+                        <p>Analyse globale des ventes par heure sur une semaine complète. On observe des pics de
+                            consommation le lundi à 11h (debut de semaine) et le vendredi à 15h (fin de semaine - debut
+                            de weekend).</p>
+                        <div class="image-container" style="margin-top: 1rem;">
+                            <img src="../assets/img/ventes par heures des jours de la semaine_cafépng.png"
+                                alt="Graphique des ventes par heure sur une semaine complète"
+                                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
+                                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Recette par Catégorie et Mois</h4>
+                    <div class="card-content">
+                        <p>Analyse globale des ventes par heure sur une semaine complète. On observe des pics de
+                            consommation le lundi à
+                            11h (debut de semaine) et le vendredi à 15h (fin de semaine - debut de weekend).</p>
+                        <div class="image-container" style="margin-top: 1rem;">
+                            <img src="../assets/img/recette par categorie et par mois_café.png"
+                                alt="Graphique des ventes par catégorie et par mois"
+                                style="width: 100%; max-width: 800px; height: auto; border-radius: 8px;"
+                                onerror="this.onerror=null; this.src='../assets/img/fallback-graph.png';">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <p>Ces analyses permettent de mieux comprendre les comportements d'achat des clients, d'identifier
+                        les
+                        produits les plus rentables et de planifier les stratégies commerciales en conséquence.</p>
                 </div>
             </div>
-        </section>
+        
 
         <!-- Section IV: Résultats & Apprentissages -->
         <section class="section" id="resultats">
             <div class="container">
                 <h2 class="section-title">IV. Résultats & Apprentissages</h2>
 
-<div class="card-grid">
-    <div class="card">
-        <div class="card-icon">
-            <i class="bi bi-trophy"></i>
-        </div>
-        <h3 class="card-title">IV-1. Succès</h3>
-        <div class="card-content">
-            <ul>
-                <li>Modularité du code pour réutilisabilité</li>
-                <li>Gestion robuste des erreurs</li>
-                <li>Documentation inline complète</li>
-                <li>Indexation stratégique des tables</li>
-                <li>Validation des types de données</li>
-                <li>Tests unitaires sur transformations</li>
-            </ul>
-        </div>
-    </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+                        <h3 class="card-title">IV-1. Succès</h3>
+                        <div class="card-content">
+                            <ul>
+                                <li>Modularité du code pour réutilisabilité</li>
+                                <li>Gestion robuste des erreurs</li>
+                                <li>Documentation inline complète</li>
+                                <li>Indexation stratégique des tables</li>
+                                <li>Validation des types de données</li>
+                                <li>Tests unitaires sur transformations</li>
+                            </ul>
+                        </div>
+                    </div>
 
-    <div class="card">
-        <div class="card-icon">
-            <i class="bi bi-laptop"></i>
-        </div>
-        <h3 class="card-title">IV-2. Stack Technique</h3>
-        <div class="card-content">
-            <ul>
-                <li><i class="bi bi-code-slash" style="color: var(--primary-color);"></i> <strong>Python 3.x</strong>
-                </li>
-                <li><i class="bi bi-database" style="color: var(--secondary-color);"></i> <strong>PostgreSQL</strong>
-                </li>
-                <li><i class="bi bi-gear" style="color: var(--accent-color);"></i> <strong>SQLAlchemy</strong></li>
-                <li><i class="bi bi-table" style="color: var(--primary-color);"></i> <strong>Pandas</strong></li>
-                <li><i class="bi bi-geo-alt" style="color: var(--secondary-color);"></i> <strong>GeoPy</strong></li>
-                <li><i class="bi bi-cloud-download" style="color: var(--accent-color);"></i> <strong>KaggleHub</strong>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h3 class="card-title">IV-2. Stack Technique</h3>
+                        <div class="card-content">
+                            <ul>
+                                <li><i class="bi bi-code-slash" style="color: var(--primary-color);"></i> <strong>Python
+                                        3.x</strong>
+                                </li>
+                                <li><i class="bi bi-database" style="color: var(--secondary-color);"></i>
+                                    <strong>PostgreSQL</strong>
+                                </li>
+                                <li><i class="bi bi-gear" style="color: var(--accent-color);"></i>
+                                    <strong>SQLAlchemy</strong></li>
+                                <li><i class="bi bi-table" style="color: var(--primary-color);"></i>
+                                    <strong>Pandas</strong></li>
+                                <li><i class="bi bi-geo-alt" style="color: var(--secondary-color);"></i>
+                                    <strong>GeoPy</strong></li>
+                                <li><i class="bi bi-cloud-download" style="color: var(--accent-color);"></i>
+                                    <strong>KaggleHub</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
 
-                
-              
+
+
 
 
                 <!-- Code samples des requêtes principales -->
@@ -551,56 +579,57 @@ ORDER BY mois;</code></pre>
         </section>
 
         <!-- Footer Section -->
-<section style="background: var(--gradient-primary); color: white; padding: 3rem 0; text-align: center;">
-    <div class="container">
-        <h3 style="margin-bottom: 1rem;">Projet Data Engineering Complet</h3>
-       
+        <section style="background: var(--gradient-primary); color: white; padding: 3rem 0; text-align: center;">
+            <div class="container">
+                <h3 style="margin-bottom: 1rem;">Projet Data Engineering Complet</h3>
 
-        <!-- ✅ Points forts du projet -->
-        <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <i class="bi bi-check-circle-fill"></i>
-                <span>149K+ Transactions Traitées</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <i class="bi bi-check-circle-fill"></i>
-                <span>Pipeline 100% Automatisé</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <i class="bi bi-check-circle-fill"></i>
-                <span>Modèle Star Schema Optimisé</span>
-            </div>
-        </div>
 
-        <!-- Mention légale -->
-        <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
-            <p>© 2025 François OKOLO - Tous droits réservés</p>
-        </div>
+                <!-- ✅ Points forts du projet -->
+                <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>149K+ Transactions Traitées</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Pipeline 100% Automatisé</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Modèle Star Schema Optimisé</span>
+                    </div>
+                </div>
 
-        <!-- Icônes sociales -->
-        <div class="social-icons" style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem;">
-            <a href="https://www.linkedin.com/in/fran%C3%A7ois-okolo-508318186/" target="_blank"
-                style="color: white; font-size: 1.6rem;">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/zack-madiba" target="_blank" style="color: white; font-size: 1.6rem;">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:ofralsesse@gmail.com"
-                onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=ofralsesse@gmail.com&su=Contact%20depuis%20le%20portfolio&body=Bonjour%20François%2C%0AJe%20souhaite%20en%20savoir%20plus%20sur%20votre%20profil', '_blank'); return false;"
-                target="_blank" title="ofralsesse@gmail.com" style="color: white; font-size: 1.6rem;">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://wa.me/33636087016" target="_blank" style="color: white; font-size: 1.6rem;">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=100008535361432&locale=fr_FR" target="_blank"
-                style="color: white; font-size: 1.6rem;">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </div>
-    </div>
-</section>
+                <!-- Mention légale -->
+                <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+                    <p>© 2025 François OKOLO - Tous droits réservés</p>
+                </div>
+
+                <!-- Icônes sociales -->
+                <div class="social-icons"
+                    style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem;">
+                    <a href="https://www.linkedin.com/in/fran%C3%A7ois-okolo-508318186/" target="_blank"
+                        style="color: white; font-size: 1.6rem;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/zack-madiba" target="_blank" style="color: white; font-size: 1.6rem;">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:ofralsesse@gmail.com"
+                        onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=ofralsesse@gmail.com&su=Contact%20depuis%20le%20portfolio&body=Bonjour%20François%2C%0AJe%20souhaite%20en%20savoir%20plus%20sur%20votre%20profil', '_blank'); return false;"
+                        target="_blank" title="ofralsesse@gmail.com" style="color: white; font-size: 1.6rem;">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/33636087016" target="_blank" style="color: white; font-size: 1.6rem;">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100008535361432&locale=fr_FR" target="_blank"
+                        style="color: white; font-size: 1.6rem;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
 
     </main>
 
@@ -807,7 +836,7 @@ ORDER BY mois;</code></pre>
         function createParticles() {
             const heroSection = document.querySelector('.hero-section');
             for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
+                const particle = document.createElement('div')
                 particle.style.position = 'absolute';
                 particle.style.width = Math.random() * 4 + 'px';
                 particle.style.height = particle.style.width;
@@ -824,9 +853,9 @@ ORDER BY mois;</code></pre>
         // Activation des particules après chargement
         setTimeout(createParticles, 1000);
 
-        console.log('🚀 Page Data Engineering chargée avec succès !');
+        console.log('Page Data Engineering chargée avec succès !');
     </script>
-    
+
 </body>
 
 </html>

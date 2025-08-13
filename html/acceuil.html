@@ -229,9 +229,75 @@ window.addEventListener("scroll", function () {
   lastScrollTop = scrollTop;
 });
 </script>
+<div id="popup-message">
+    <p>
+        Ce projet data sera disponible très bientôt.<br>
+        Vous pouvez retrouver le script de traitement sur mon 
+        <a href="https://github.com/zack-madiba" target="_blank">GitHub</a>.
+    </p>
+    <button onclick="closePopup()">Fermer</button>
+</div>
+
+<style>
+/* Style du popup */
+#popup-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Fond semi-transparent derrière le popup */
+body::after {
+    content: "";
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+}
+body.popup-active::after {
+    display: block;
+}
+
+#popup-message button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    background: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#popup-message button:hover {
+    background: #0056b3;
+}
+</style>
+
 <script>
 function showComingSoonMessage() {
-    alert("Ce projet data sera disponible très bientôt.\nVous pouvez retrouver le script de traitement sur mon GitHub.");
+    document.getElementById('popup-message').style.display = 'block';
+    document.body.classList.add('popup-active');
+}
+
+function closePopup() {
+    document.getElementById('popup-message').style.display = 'none';
+    document.body.classList.remove('popup-active');
 }
 </script>
 </body>

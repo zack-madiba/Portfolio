@@ -96,7 +96,6 @@ Portfolio</h1>
                     </div>
                 </div>
             </div>
-            
             <div class="project-card" onclick="window.location.href='café.html'">
                 <div class="project-content" href="./café.html">
                         <div>
@@ -109,17 +108,16 @@ Portfolio</h1>
                                 afin d’identifier les tendances de consommation 
                                 et maximiser la rentabilité de chaque point de vente.
                                 </p>
-                        
+                        </div>
                         <div class="project-tech">
+                                <span class="tech-badge">PostgreSQL</span>
                                 <span class="tech-badge">ETL</span>
                                 <span class="tech-badge">Python</span>
                                 <span class="tech-badge">Power BI</span>
-                                <span class="tech-badge">PostgreSQL</span>
                     </div>
-                        </div>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card" onclick="showComingSoonMessage()">
                 <div class="project-content">
                     <div>
                         <div class="project-header">
@@ -231,7 +229,11 @@ window.addEventListener("scroll", function () {
   lastScrollTop = scrollTop;
 });
 </script>
-
+<script>
+function showComingSoonMessage() {
+    alert("Ce projet data sera disponible très bientôt.\nVous pouvez retrouver le script de traitement sur mon GitHub.");
+}
+</script>
 </body>
   <footer style="background-color: #212529; color: white; text-align: center; padding: 2rem 1rem; margin-top: 5rem;">
     <div class="container">

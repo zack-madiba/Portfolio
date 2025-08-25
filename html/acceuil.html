@@ -80,62 +80,63 @@ Portfolio</h1>
                     <div>
                         <div class="project-header">
                             <span class="project-icon">📊</span>
-                            <h3 class="project-title">Pipeline ETL Startups-Investisseurs</h3>
+                            <h4 class="project-title">Pipeline ETL Startups-Investisseurs</h4>
                         </div>
                         <p class="project-description">
-                            Analyse complète des relations entre 49 startups et 1761 investisseurs. Pipeline ETL sécurisé pour optimiser le processus de matchmaking et identifier les goulots d'étranglement. Architecture avec Python, SQLite et Power BI.
+                                Analyse complète des relations entre 49 startups et 1761 investisseurs. 
+                                Pipeline ETL sécurisé pour optimiser le processus de matchmaking et identifier les goulots d'étranglement. 
+                                Architecture avec Python, SQLite et Power BI.
                         </p>
                     </div>
                     <div class="project-tech">
                         <span class="tech-badge">Python</span>
-                        <span class="tech-badge">SQL</span>
+                        <span class="tech-badge">SQLite</span>
                         <span class="tech-badge">Power BI</span>
                         <span class="tech-badge">ETL</span>
                     </div>
                 </div>
             </div>
-            
             <div class="project-card" onclick="window.location.href='café.html'">
                 <div class="project-content" href="./café.html">
-                    <div>
+                        <div>
                         <div class="project-header">
                             <span class="project-icon">🏪</span>
-                            <h3 class="project-title">Analyse Complète des Ventes d'un Distributeur de Café</h3>
+                            <h4  class="project-title">Analyse des ventes d'un distributeur de café</h4>
                         </div>
-                        <p class="project-description">
-                            Analyse complète des ventes multi-magasins pour une chaîne de cafés new-yorkaise. Pipeline ETL automatisé avec
-                            géolocalisation et modélisation en étoile pour l'optimisation des performances commerciales.</p>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Metabase / Power BI</span>
-                        <span class="tech-badge">PostgreSQL</span>
-                        
+                                <p class="project-description">
+                                Pipeline et exploitation des données d'un distributeur de café, 
+                                afin d’identifier les tendances de consommation 
+                                et maximiser la rentabilité de chaque point de vente.
+                                </p>
+                        </div>
+                        <div class="project-tech">
+                                <span class="tech-badge">PostgreSQL</span>
+                                <span class="tech-badge">ETL</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Power BI</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="project-card">
+            <div class="project-card" onclick="showComingSoonMessage()">
                 <div class="project-content">
                     <div>
                         <div class="project-header">
                             <span class="project-icon">🌐</span>
-                            <h3 class="project-title">Pollution Dans le Sud de la france</h3>
+                            <h4 class="project-title">Pollution Dans le Sud de la france</h4>
                         </div>
                         <p class="project-description">
                             A venir!
                         </p>
                     </div>
-                    
                 </div>
             </div>
             
-            <div class="project-card">
+            <div class="project-card" onclick="showComingSoonMessage()">
                 <div class="project-content">
                     <div>
                         <div class="project-header">
                             <span class="project-icon">📈</span>
-                            <h3 class="project-title">Suivi des Non-Conformités dans les Études Cliniques</h3>
+                            <h4 class="project-title">Suivi des Non-Conformités dans les Études Cliniques</h4>
                         </div>
                         <p class="project-description">
                             Dans le cadre d’études cliniques, une entreprise biomédicale consigne ses non-conformités... A venir!
@@ -150,7 +151,7 @@ Portfolio</h1>
                 </div>
             </div>
             
-            <div class="project-card">
+            <div class="project-card" onclick="showComingSoonMessage()">
                 <div class="project-content">
                     <div>
                         <div class="project-header">
@@ -169,7 +170,7 @@ Portfolio</h1>
                 </div>
             </div>
             
-            <div class="project-card">
+            <div class="project-card" onclick="showComingSoonMessage()">
                 <div class="project-content">
                     <div>
                         <div class="project-header">
@@ -228,7 +229,77 @@ window.addEventListener("scroll", function () {
   lastScrollTop = scrollTop;
 });
 </script>
+<div id="popup-message">
+    <p>
+        La présentation de ce projet sera bientôt disponible.<br>
+        Vous pouvez retrouver le script de traitement et d'expoloitation des données sur mon 
+        <a href="https://github.com/zack-madiba" target="_blank">github</a>.
+    </p>
+    <button onclick="closePopup()">Fermer</button>
+</div>
 
+<style>
+/* Style du popup */
+#popup-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Fond semi-transparent derrière le popup */
+body::after {
+    content: "";
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+}
+body.popup-active::after {
+    display: block;
+}
+
+#popup-message button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    background: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#popup-message button:hover {
+    background: #0056b3;
+}
+</style>
+
+<script>
+function showComingSoonMessage() {
+    document.getElementById('popup-message').style.display = 'block';
+    document.body.classList.add('popup-active');
+}
+
+function closePopup() {
+    document.getElementById('popup-message').style.display = 'none';
+    document.body.classList.remove('popup-active');
+}
+</script>
 </body>
   <footer style="background-color: #212529; color: white; text-align: center; padding: 2rem 1rem; margin-top: 5rem;">
     <div class="container">
